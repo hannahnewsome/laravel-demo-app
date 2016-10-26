@@ -30,10 +30,12 @@ class ProfilesController extends Controller
 
     public function update($userid)
     {
-      $user = \App\User::whereId($userid)->firstOrFail();
+      $user = \App\User::with('profile')->whereId($userid)->firstOrFail();
       $input = Input::only('location', 'bio', 'twitter_username', 'github_username');
 
       $this->validator($input);
+      
+      //dd($user);
       $user->profile->fill($input)->save();
       return redirect()->route('profile.edit', $user->id);
     }
@@ -48,7 +50,7 @@ class ProfilesController extends Controller
     {
         return Validator::make($data, [
             'location' => 'nullable|max:255',
-            'bio' => 'nullable',
+            'bio' => 'required|filled',
             'twitter_username' => 'nullable',
             'github_username' => 'nullable',
         ]);

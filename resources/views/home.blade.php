@@ -10,6 +10,10 @@
                 <div class="panel-body">
                     You are logged in!
                 </div>
+                <div class="panel-body">
+                    View available data sets:
+                    <a href="{{ url('/titanic') }}">Titanic Survivors</a>
+                </div>
             </div>
         </div>
     </div>

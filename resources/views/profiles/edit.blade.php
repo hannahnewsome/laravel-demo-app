@@ -2,6 +2,7 @@
 
 @section('content');
 <div class="container">
+@if (Auth::user()->id == $user->id)
   <h1>{{ $user->name }}</h1>
   Edit Profile
 
@@ -20,6 +21,8 @@
 
     {{ Form::submit('Update Profile', null, ['class' => 'btn btn-primary']) }}
   {{ Form::close() }}
-
+@else
+  You must be logged in to perform this action
+@endif
 </div>
 @stop

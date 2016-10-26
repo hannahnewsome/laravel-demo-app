@@ -10,11 +10,35 @@
                   @if ($passenger->survived)
                     Yes
                   @else
-                    no
+                    <span class='red'>No</span>
                   @endif
-                  <b>Gender:</b> {{ $passenger->sex }}
-                  <b>Age:</b> {{ $passenger->age }}
-                  <b>Embarked at:</b> {{ $passenger->embarked }}
+                  <br>
+                  <b>Gender:</b> {{ ucwords($passenger->sex) }}
+                  <br>
+                  <b>Age:</b> @if ($passenger->age)
+                                {{$passenger->age }}
+                              @else
+                                Unknown
+                              @endif
+                  <br>
+                  <b>Embarked at:</b>
+                  @if ($passenger->embarked == 'S')
+                    Southampton
+                  @elseif ($passenger->embarked == 'Q')
+                    Queenstown
+                  @else
+                    Cherbourg
+                  @endif
+                  <br>
+                  <b>Ticket Number:</b> {{ $passenger->ticket }}
+                  <br>
+                  <b>Fare:</b> {{ number_format($passenger->fare, 2) }}
+                  <br>
+                  <b>Cabin:</b> {{ $passenger->cabin }}
+                  <br>
+                  <b>Number of Siblings/Spouses Aboard:</b> {{ $passenger->sibsp }}
+                  <br>
+                  <b>Number of Parents/Children Aboard:</b> {{ $passenger->parch }}
                 </div>
                 <div class="panel-footer">
                   <a href="{{ URL::previous() }}">Back</a>

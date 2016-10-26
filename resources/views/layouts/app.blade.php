@@ -59,6 +59,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                  <li>
+                                      <a href="{{ url('/home') }}">Dashboard</a>
+                                  </li>
                                     <li>
                                         <a href="{{ url('/'.\Auth::User()->id) }}">Profile</a>
                                     </li>

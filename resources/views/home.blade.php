@@ -12,7 +12,7 @@
                 </div>
                 <div class="panel-body">
                     View available data sets:
-                    <a href="{{ url('/titanic') }}">Titanic Survivors</a>
+                    <a href="{{ url('/titanic') }}">Passengers on the Titanic</a>
                 </div>
             </div>
         </div>

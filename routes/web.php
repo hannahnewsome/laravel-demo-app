@@ -24,7 +24,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/titanic', 'TitanicController@index')->name('titanic');
-Route::get('/titanic/{id}', 'TitanicController@detail')->name('titanicDetail');
+Route::get('/titanic/passenger/{id}', 'TitanicController@detail')->name('titanicDetail');
 Route::get('/titanic/excel/{page}', 'TitanicController@excel')->name('titanicPaginatedExcel');
 
 Route::get('/{profile}', 'ProfilesController@show');

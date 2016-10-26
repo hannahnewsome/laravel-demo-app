@@ -25,3 +25,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/{profile}', 'ProfilesController@show');
 Route::get('/{profile}/edit', ['as' => 'profile.edit', 'uses' => 'ProfilesController@edit']);
+Route::post('/{profile}/edit', ['as' => 'profile.update', 'uses' => 'ProfilesController@update']);

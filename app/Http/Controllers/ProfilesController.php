@@ -34,9 +34,10 @@ class ProfilesController extends Controller
       $input = Input::only('location', 'bio', 'twitter_username', 'github_username');
 
       $this->validator($input);
-      
+
       //dd($user);
       $user->profile->fill($input)->save();
+      \Session::flash('flash_message','Profile successfully updated!');
       return redirect()->route('profile.edit', $user->id);
     }
 

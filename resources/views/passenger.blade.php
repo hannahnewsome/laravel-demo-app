@@ -5,6 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
+              @if (Auth::check())
                 <div class="panel-heading">{{ $passenger->name_first }} {{ $passenger->name_last }}</div>
                 <div class="panel-body"><b>Survived?</b>
                   @if ($passenger->survived)
@@ -40,6 +41,11 @@
                   <br>
                   <b>Number of Parents/Children Aboard:</b> {{ $passenger->parch }}
                 </div>
+                @else
+                  <div class="panel-body">
+                    You must be logged in to view this passenger's information.
+                  </div>
+                @endif
                 <div class="panel-footer">
                   <a href="{{ URL::previous() }}">Back</a>
                 </div>

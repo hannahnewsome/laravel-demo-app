@@ -2,9 +2,18 @@
 
 @section('content');
 <div class="container">
+      <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+              <div class="panel panel-default">
+                @if(Session::has('flash_message'))
+                    <div class="alert alert-success"> {!! session('flash_message') !!} <a href="{{ url('/home') }}">Go back home</a></div>
+                @endif
+                    <div class="panel-heading">
+                    <h3> Edit Profile</h3>
+                    </div>
+                    <div class="panel-body">
 @if (Auth::user()->id == $user->id)
-  <h1>{{ $user->name }}</h1>
-  Edit Profile
+  <h3>{{ $user->name }}</h3>
 
   {{ Form::model($user->profile, ['route' => ['profile.update', $user->id]]) }}
     {{ Form::label('location', 'Location:') }}
@@ -24,5 +33,9 @@
 @else
   You must be logged in to perform this action
 @endif
+</div>
+</div>
+</div>
+</div>
 </div>
 @stop

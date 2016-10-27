@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Titanic Passengers</div>
+                <div class="panel-heading">Titanic Passengers | <a href="{{ url('/titanic/excel/'.$page) }}">Download Current Page</a></div>
             @if (Auth::user())
               <div class="panel-body">
                 <div class="table-responsive">
@@ -21,7 +21,6 @@
               </div>
               <div class="panel-footer">
                   {{ $data->links() }}
-                  <a href="{{ url('/titanic/excel/'.$page) }}">Download</a>
                 </div>
             @else
               <div class="panel-body"> You must be logged in to view this data set </div>

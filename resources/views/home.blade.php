@@ -8,7 +8,8 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    You are logged in! <br>
+                    <a href="{{ url('/'.\Auth::User()->id) }}">View your profile</a>
                 </div>
                 <div class="panel-body">
                     View available data sets:

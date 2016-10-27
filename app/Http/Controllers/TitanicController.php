@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class TitanicController extends Controller
 {
   /**
-   * Show the application dashboard.
+   * Show paginated data.
    *
    * @return \Illuminate\Http\Response
    */
@@ -18,6 +18,12 @@ class TitanicController extends Controller
 
     return view('titanic', ['data' => $data, 'page' => $page]);
   }
+
+  /**
+   * Show individual passenger data.
+   *
+   * @return \Illuminate\Http\Response
+   */
 
   public function detail($id)
   {
@@ -33,8 +39,10 @@ class TitanicController extends Controller
 
   /**
    * Generate excel spreadsheet from data passed in
+   * uses Laravel excel plugin from:
+   * http://www.maatwebsite.nl/laravel-excel/docs
    *
-   * @return \Illuminate\Http\Response
+   * @return void
    */
   public function excel($page)
   {

@@ -9,7 +9,11 @@ use Illuminate\Support\Facades\Validator;
 
 class ProfilesController extends Controller
 {
-
+  /**
+   * Show the user's profile.
+   *
+   * @return \Illuminate\Http\Response
+   */
     public function show($userid)
     {
       try
@@ -22,11 +26,24 @@ class ProfilesController extends Controller
       return \View::make('profiles.show')->withUser($user);
     }
 
+    /**
+     * Fetch current user and direct user to page for editing profile.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
     public function edit($userid)
     {
       $user = \App\User::whereId($userid)->firstOrFail();
       return \View::make('profiles.edit')->withUser($user);
     }
+
+    /**
+     * Fetch current user and profile
+     * Validate input and save new profile information
+     *
+     * @return \Illuminate\Http\Response
+     */
 
     public function update($userid)
     {

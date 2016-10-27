@@ -68,7 +68,7 @@ class TitanicController extends Controller
             $sheet->fromArray($dataArray, null, 'A1', false, false);
         });
 
-    })->export('xlsx');
+    })->export('xls');
 
   }
 
